@@ -8,16 +8,20 @@
   <!-- World IDのCDN -->
   <script type="module">
     import { MiniKit } from 'https://cdn.jsdelivr.net/npm/@worldcoin/minikit-js@latest/+esm';
+
+    MiniKit.install().then(() => {
+      console.log("MiniKit is installed!");
+
+      const element = document.getElementById("world-id-container");
   
-    const element = document.getElementById("world-id-container");
-  
-    WorldID.init({
-      action_id: "vote_1",  
-      signal: "user-login",
-      app_id: "app_dca2c712a9188efd2d2c43d6803f984f",  
-      container: element,
-      on_success: (response) => console.log("Verification successful", response),
-      on_error: (error) => console.error("Verification failed", error),
+        WorldID.init({
+        action_id: "vote_1",  
+        signal: "user-login",
+        app_id: "app_dca2c712a9188efd2d2c43d6803f984f",  
+        container: element,
+        on_success: (response) => console.log("Verification successful", response),
+        on_error: (error) => console.error("Verification failed", error),
+        });
     });
   </script>
   
