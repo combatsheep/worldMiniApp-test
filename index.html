@@ -9,7 +9,10 @@
   <script type="module">
     import { MiniKit } from 'https://cdn.jsdelivr.net/npm/@worldcoin/minikit-js@latest/+esm';
 
-    MiniKit.install().then(() => {
+    // MiniKitのインストールとWorldIDの初期化
+    try {
+      MiniKit.install();  // 同期関数として扱う
+
       console.log("MiniKit is installed!");
 
       const element = document.getElementById("world-id-container");
@@ -22,7 +25,9 @@
         on_success: (response) => console.log("Verification successful", response),
         on_error: (error) => console.error("Verification failed", error),
         });
-    });
+    } catch (err) {
+      console.error("MiniKit installation failed:", err);
+    }
   </script>
   
 </head>
