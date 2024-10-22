@@ -1,3 +1,5 @@
+import { WorldID } from "@worldcoin/idkit";
+
 const element = document.getElementById("world-id-container");
 
 new WorldID.init({
@@ -5,6 +7,7 @@ new WorldID.init({
   signal: "user-login",
   app_id: "app_dca2c712a9188efd2d2c43d6803f984f",  // Developer Portalで取得したApp ID
   container: element,  // QRコードを表示する要素
+  
   on_success: (response) => {
     console.log("Verification successful", response);
   },
@@ -12,3 +15,5 @@ new WorldID.init({
     console.error("Verification failed", error);
   }
 });
+
+console.log(MiniKit.isInstalled());
