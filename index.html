@@ -7,14 +7,14 @@
 
   <!-- World IDのCDN -->
   <script type="module">
-    import { WorldID } from 'https://cdn.jsdelivr.net/npm/@worldcoin/minikit-js@1.0.0/+esm';
+    import { MiniKit } from 'https://cdn.jsdelivr.net/npm/@worldcoin/minikit-js@latest/+esm';
   
     const element = document.getElementById("world-id-container");
   
     WorldID.init({
       action_id: "vote_1",  
       signal: "user-login",
-      app_id: "<your_app_id>",  
+      app_id: "app_dca2c712a9188efd2d2c43d6803f984f",  
       container: element,
       on_success: (response) => console.log("Verification successful", response),
       on_error: (error) => console.error("Verification failed", error),
