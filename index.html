@@ -6,7 +6,21 @@
   <title>Hello World</title>
 
   <!-- World IDのCDN -->
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@worldcoin/minikit-js@1.0.0/+esm"></script>
+  <script type="module">
+    import { WorldID } from 'https://cdn.jsdelivr.net/npm/@worldcoin/minikit-js@1.0.0/+esm';
+  
+    const element = document.getElementById("world-id-container");
+  
+    WorldID.init({
+      action_id: "vote_1",  
+      signal: "user-login",
+      app_id: "<your_app_id>",  
+      container: element,
+      on_success: (response) => console.log("Verification successful", response),
+      on_error: (error) => console.error("Verification failed", error),
+    });
+  </script>
+  
 </head>
 <body>
   <!--<h1>Hello World from GitHub Pages!</h1>-->
@@ -15,6 +29,6 @@
   <div id="world-id-container"></div>
 
   <!-- index.jsの読み込み -->
-  <script type="module" src="index.js?0211"></script>
+  <!--<script type="module" src="index.js?0211"></script>-->
 </body>
 </html>
